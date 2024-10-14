@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darum</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Background gradient from dark gray to black */
+            background: linear-gradient(135deg, #1f2937, #000000);
+        }
+        /* Custom scrollbar for aesthetic purposes */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        /* Animation for the main image */
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-fadeInZoom {
+            animation: fadeInZoom 1.5s ease-out forwards;
+        }
+        /* Navbar scroll animation */
+        .scrolled {
+            background-color: rgba(31, 41, 55, 0.9); /* Semi-transparent dark gray */
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Header with Alpine.js for mobile menu -->
+    <header x-data="{ open: false }" class="bg-transparent shadow-md fixed w-full z-20 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="#" class="text-3xl font-bold text-gray-400">$Darum</a>
+            <nav>
+                <ul class="hidden md:flex space-x-4 md:space-x-6">
+                    <li><a href="#about" class="hover:text-gray-300 text-sm md:text-base">About</a></li>
+                    <li><a href="#roadmap" class="hover:text-gray-300 text-sm md:text-base">Roadmap</a></li>
+                    <!-- Added Links -->
+                    <li><a href="https://pump.fun/Hic3JTTF4bj5cYy43oco5BFZTYBdjG5bHhApSk8jpump" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Pump.fun</a></li>
+                    <li><a href="https://t.me/+NGtRJXXB-4BiYzE1" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Telegram</a></li>
+                    <li><a href="https://x.com/Darumonsol" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Twitter</a></li>
+                </ul>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-400 hover:text-gray-300 focus:outline-none">
+                        <svg :class="{'hidden': open, 'block': !open}" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg :class="{'block': open, 'hidden': !open}" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div x-show="open" @click.away="open = false" class="md:hidden bg-gray-800 bg-opacity-90">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="#about" class="hover:text-gray-300 text-sm md:text-base">About</a></li>
+                <li><a href="#roadmap" class="hover:text-gray-300 text-sm md:text-base">Roadmap</a></li>
+                <!-- Added Links -->
+                <li><a href="https://pump.fun/Hic3JTTF4bj5cYy43oco5BFZTYBdjG5bHhApSk8jpump" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Pump.fun</a></li>
+                <li><a href="https://t.me/YourTelegramLink" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Telegram</a></li>
+                <li><a href="https://x.com/Darumonsol" target="_blank" class="hover:text-gray-300 text-sm md:text-base">Twitter</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Bulle Flottante -->
+    <div class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-gray-600 bg-opacity-80 text-white px-6 py-3 rounded-full shadow-lg z-20 animate-pulse">
+        CA : Hic3JTTF4bj5cYy43oco5BFZTYBdjG5bHhApSk8jpump
+    </div>
+
+    <!-- Main Banner Section -->
+    <section class="flex items-center justify-center min-h-screen pt-24 px-4" data-aos="fade-up">
+        <img src="images/photo_2024-10-14_15-12-54.jpg" alt="Darum Image" class="w-full max-w-md h-auto rounded-lg shadow-lg animate-fadeInZoom transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl active:scale-105 active:shadow-2xl">
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="py-16 bg-gray-800" id="roadmap" data-aos="fade-up">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-400 mb-6">Roadmap</h2>
+            <p class="text-lg">
+                <strong>NO ROADMAP, JUST AN ANTI MURAD MOVEMENT.</strong> <br>
+                Join us
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gray-900" id="about" data-aos="fade-up">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
+            <div class="md:w-1/3 w-full" data-aos="fade-right">
+                <img src="images/photo_2024-10-14_15-12-54.jpg" alt="About Darum" class="rounded-lg shadow-lg w-full h-auto transform transition-transform duration-300 hover:scale-105">
+            </div>
+            <div class="md:w-2/3 w-full md:pl-12 mt-8 md:mt-0" data-aos="fade-left">
+                <h3 class="text-2xl md:text-3xl font-semibold text-gray-400 mb-4">About Darum</h3>
+                <p class="mb-4">
+                    At Darum, we stand firmly against the oppressive forces of Murad. Our movement is fueled by a passion for freedom, justice, and equality. We believe in creating a world where everyone has the opportunity to thrive without the constraints imposed by authoritarian regimes. 🥁
+                </p>
+                <p class="mb-6">
+                    Join us in our mission to dismantle the structures that hinder progress and to build a community united by resilience and hope. Together, we can make a lasting impact and pave the way for a brighter, more equitable future.
+                </p>
+                <a href="https://t.me/+NGtRJXXB-4BiYzE1" target="_blank" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-full text-sm md:text-base transform transition-transform duration-300 hover:scale-105">Join Our Movement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6" data-aos="fade-up">
+        <div class="container mx-auto text-center px-4">
+            <p class="mb-4 text-sm md:text-base">© 2024 Darum. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialiser AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Navbar animation on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
